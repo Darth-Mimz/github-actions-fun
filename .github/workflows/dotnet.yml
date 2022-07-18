@@ -27,3 +27,8 @@ jobs:
       run: dotnet build --no-restore -o output/
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Publish Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: assets-for-download
+        path: output
