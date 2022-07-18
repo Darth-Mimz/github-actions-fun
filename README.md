@@ -1,2 +1,6 @@
 # github-actions-fun
-for playing with github actions
+For playing with github actions.
+
+This c# project, when compiled, will output "I did the thing!" to STDOUT. 
+
+
