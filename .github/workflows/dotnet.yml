@@ -27,8 +27,23 @@ jobs:
       run: dotnet build --no-restore -o output/
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Publish Artifacts
-      uses: actions/upload-artifact@v2
+    - name: release
+      uses: actions/create-release@v1
+      id: create_release
       with:
-        name: assets-for-download
-        path: output
+        draft: false
+        prerelease: false
+        release_name: "latest"
+        tag_name: "latest"
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+    - name: upload artifact
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: output/
+        asset_name: pop-calc.zip
+        asset_content_type: application/zip
