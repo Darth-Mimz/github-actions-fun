@@ -38,6 +38,8 @@ jobs:
         body_path: CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ github.token }}
+    - name: take_a_look
+      run: dir output
     - name: upload artifact
       uses: actions/upload-release-asset@v1
       env:
