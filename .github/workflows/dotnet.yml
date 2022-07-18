@@ -38,8 +38,8 @@ jobs:
         body_path: CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ github.token }}
-    - name: take_a_look
-      run: dir output
+    - name: zip_it_up
+      run: tar.exe -a -c -f output/pop-calc.zip output/pop-calc.exe
     - name: upload artifact
       uses: actions/upload-release-asset@v1
       env:
