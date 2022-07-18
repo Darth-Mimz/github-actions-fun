@@ -46,6 +46,6 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: output/pop-calc.exe
+        asset_path: output/pop-calc.zip
         asset_name: pop-calc.zip
         asset_content_type: application/zip
